@@ -1,0 +1,1 @@
+In this directory I will be writing Technical interview questions that come as part of ALX Software engineering curiculmn to prepare for work readiness.
