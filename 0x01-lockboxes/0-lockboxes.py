@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 def canUnlockAll(boxes):
     if not boxes:
         return False
