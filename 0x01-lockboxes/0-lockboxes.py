@@ -12,12 +12,14 @@ def canUnlockAll(boxes):
 
     # Explore the boxes using breadth-first search
     while queue:
+        # Get the next box from the queue
         box = queue.pop(0)
 
         # Check each key in the current box
         for key in boxes[box]:
             # If the key corresponds to a valid box and it hasn't been visited
             if key < num_boxes and not visited[key]:
-                visited[key] = True  
-                queue.append(key)  
+                visited[key] = True  # Mark the box as visited
+                queue.append(key)  # Add the box to the queue for further exploration
+
     return all(visited)
