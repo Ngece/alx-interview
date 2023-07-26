@@ -5,11 +5,11 @@ import codecs
 
 def validUTF8(data):
     """ determines if a given data set represents a valid UTF-8 encoding """
+    if not data:
+        return False
     try:
-        if isinstance(data, bytes):
-            data.decode()
-        else:
-            return False
+        codecs.getdecoder("utf-8")(data)
+        return True
     except UnicodeDecodeError:
         return False
-    return True
+    
