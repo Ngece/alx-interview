@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""N Queens program"""
+"""N Queens program that solves the N Queens problem"""
 
 import sys
 
@@ -26,9 +26,10 @@ def solve_n_queens(board, row, N):
             solve_n_queens(board, row + 1, N)
             board[row] = -1
 
-
 def n_queens(N):
-    """ Function to initialize the chessboard and start the backtracking process"""
+    """ Function to initialize the chessboard and start the 
+    backtracking process
+    """
     board = [-1 for _ in range(N)]
     solve_n_queens(board, 0, N) 
 
