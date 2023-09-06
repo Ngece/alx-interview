@@ -2,9 +2,9 @@
 '''Prime game for Maria and Ben'''
 
 def isWinner(x, nums):
-    '''Returns the name of the player that won the most rounds'''
+    '''Prime game for Maria and Ben'''
     def is_prime(num):
-        '''Checks if a number is prime'''
+        '''Check if a number is prime'''
         if num <= 1:
             return False
         for i in range(2, num):
@@ -13,7 +13,7 @@ def isWinner(x, nums):
         return True
     
     def get_primes(n):
-        '''Returns a list of prime numbers'''
+        '''Get all primes up to n'''
         primes = []
         for i in range(1, n + 1):
             if is_prime(i):
@@ -21,16 +21,32 @@ def isWinner(x, nums):
         return primes
     
     def get_winner(primes, n):
-        '''Returns the winner of the game'''
+        '''Get the winner of the game'''
         if n % 2 == 0:
             return 'Maria'
         return 'Ben'
     
     if x < 1 or nums is None:
         return None
+    
     primes = get_primes(max(nums))
-    score = 0
+    maria_turn = True  
+    winners = []
+
     for n in nums:
         if n in primes:
-            score += 1
-    return get_winner(primes, score)
+            if maria_turn:
+                winners.append('Maria')
+            else:
+                winners.append('Ben')
+        maria_turn = not maria_turn
+
+    maria_wins = winners.count('Maria')
+    ben_wins = winners.count('Ben')
+
+    if maria_wins > ben_wins:
+        return 'Maria'
+    elif maria_wins < ben_wins:
+        return 'Ben'
+    else:
+        return None
