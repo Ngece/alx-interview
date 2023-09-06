@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 '''Prime game for Maria and Ben'''
 
 def isWinner(x, nums):
